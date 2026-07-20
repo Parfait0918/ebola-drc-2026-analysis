@@ -35,21 +35,19 @@ ebola_data <- ebola_data |>
 cat("\n--- Rt Estimates ---\n")
 print(ebola_data %>% select(date, confirmed_cases, new_cases, Rt))
 
-# ---- CHART 5: New Cases Per Reporting Period ----
+# CHART 5: New Cases Per Reporting Period
 ggplot(ebola_data |> filter(!is.na(new_cases)), aes(x = date, y = new_cases)) +
     geom_bar(stat = "identity", fill = "steelblue") +
-    labs(
-        title = "New Confirmed Cases Per Reporting Period — DRC Ebola 2026",
+    labs(title = "New Confirmed Cases Per Reporting Period — DRC Ebola 2026",
         subtitle = "Source: WHO Situation Reports",
         x = "Date",
-        y = "New Cases"
-    ) +
+        y = "New Cases") +
     theme_minimal()
 
 ggsave("outputs/figures/05_new_cases.png", width = 10, height = 6)
 cat("Chart 5 saved!\n")
 
-# ---- CHART 6: Rt Over Time ----
+#CHART 6: Rt Over Time 
 ggplot(ebola_data |>
     filter(!is.na(Rt) & Rt < 20), aes(x = date, y = Rt)) +
     geom_line(color = "purple", linewidth = 1.5) +
@@ -58,14 +56,11 @@ ggplot(ebola_data |>
     annotate("text",
         x = min(ebola_data$date, na.rm = TRUE),
         y = 1.2, label = "Rt = 1 (outbreak threshold)",
-        hjust = 0, color = "red", size = 3.5
-    ) +
-    labs(
-        title = "Estimated Transmission Rate (Rt) — DRC Ebola 2026",
+        hjust = 0, color = "red", size = 3.5) +
+    labs(title = "Estimated Transmission Rate (Rt) — DRC Ebola 2026",
         subtitle = "Rt > 1 means outbreak is growing. Rt < 1 means it is slowing.",
         x = "Date",
-        y = "Rt"
-    ) +
+        y = "Rt") +
     theme_minimal()
 
 ggsave("outputs/figures/06_rt.png", width = 10, height = 6)
