@@ -22,11 +22,29 @@ of 37 health zones affected.
 ## Visualizations
 
 * Case growth vs. Time 
+
+![Case Growth](assets/01_case_growth.png)
+
 * Deaths vs. time
+
+![Deaths](assets/02_deaths.png)
+
 * Cases Fatality Rate vs. Historical Bundibugyo Baseline(30%)
+
+![CFR](assets/03_cfr.png)
+
 * Confirmed cases vs deaths. comparison
+
+![Cases vs Deaths](assets/04_cases_vs_deaths.png)
+
 * New cases per reported period
+
+![New Cases](assets/05_new_cases.png)
+
 * Transmission Rate(Rt) vs Time
+
+![Rt](assets/06_rt.png)
+
 * Interactive map of the provinces affected
 
 ## Tools
